@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Globe, MessageCircle, Users } from 'lucide-react';
+import { Globe, MessageCircle, Users, Hexagon } from 'lucide-react';
 
 // Cast motion.div to any to avoid TypeScript errors with specific prop combinations
 const MotionDiv = motion.div as any;
 
 export const Header: React.FC = () => {
+  const [logoError, setLogoError] = useState(false);
+
   return (
     <header className="pt-32 pb-40 px-6 max-w-7xl mx-auto text-center md:text-left relative z-10">
       <MotionDiv 
@@ -14,13 +16,21 @@ export const Header: React.FC = () => {
         transition={{ duration: 1.2, ease: "easeOut" }}
         className="flex flex-col gap-8"
       >
-        {/* Logo Container */}
+        {/* Logo Container - Tries to load /logo.png, falls back to Hexagon icon on error */}
         <div className="w-28 h-28 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl flex items-center justify-center shadow-[0_0_40px_rgba(59,130,246,0.2)] mx-auto md:mx-0 overflow-hidden p-4 relative group">
-            <img 
-              src="https://img.notionusercontent.com/s3/prod-files-secure%2F98cf5535-6f34-81f1-a9ad-000323f7d8ed%2F0c535e01-70e2-4449-9d58-3c2c1005550e%2Fico.ico/size/?exp=1763721418&sig=Whsb3yiGMl2UjlaiaTioZe2Cz8NeIT9z5KlfucMQIlg&id=2b1f5535-6f34-80e1-845b-e0c923282849&table=block&userId=27ad872b-594c-81ce-8d37-0002a5bdf2db" 
-              alt="Nexus Logo" 
-              className="w-full h-full object-contain opacity-90 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] group-hover:scale-110 transition-transform duration-500"
-            />
+            {!logoError ? (
+              <img 
+                src="/logo.png"
+                alt="Nexus Logo" 
+                onError={() => setLogoError(true)}
+                className="w-full h-full object-contain opacity-90 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] group-hover:scale-110 transition-transform duration-500"
+              />
+            ) : (
+              <div className="relative w-full h-full flex items-center justify-center">
+                 <Hexagon strokeWidth={1.5} className="w-16 h-16 text-blue-400 opacity-90 group-hover:scale-110 transition-transform duration-500" />
+                 <div className="absolute inset-0 bg-blue-400/20 blur-xl rounded-full" />
+              </div>
+            )}
         </div>
         
         {/* Title */}
@@ -31,13 +41,13 @@ export const Header: React.FC = () => {
           </span>
         </h1>
         
-        {/* Description - Cleaned up borders and padding */}
+        {/* Description */}
         <p className="text-xl md:text-2xl text-slate-400 font-light max-w-2xl mx-auto md:mx-0 leading-relaxed">
             构建下一代可验证金融基础设施，
             <span className="text-blue-400">重新定义未来的信任基石。</span>
         </p>
 
-        {/* Action Buttons - Cleaned up tech corners */}
+        {/* Action Buttons */}
         <div className="flex flex-wrap gap-4 mt-6 justify-center md:justify-start">
           
           {/* Button 1: Nexus.xyz */}
