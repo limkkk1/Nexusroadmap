@@ -36,7 +36,7 @@ const App: React.FC = () => {
       </main>
       
       <footer className="text-center py-12 text-slate-500 text-sm relative z-10 border-t border-white/5">
-         <p>© 2024 Nexus Protocol. 构建未来金融.</p>
+         <p>© 2026 Nexus Protocol. 中文大使Ccool.</p>
       </footer>
     </div>
   );
