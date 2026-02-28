@@ -30,8 +30,8 @@ export const Header: React.FC = () => {
         </h1>
         
         <p className="text-xl md:text-2xl text-slate-400 font-light max-w-2xl mx-auto md:mx-0 leading-relaxed">
-            构建下一代可验证金融基础设施，
-            <span className="text-blue-400">重新定义未来的信任基石。</span>
+            可验证金融的第一层，
+            <span className="text-blue-400">打造高性能金融应用。</span>
         </p>
         <div className="flex flex-wrap gap-4 mt-6 justify-center md:justify-start">
           
