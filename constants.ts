@@ -5,9 +5,9 @@ export const INITIAL_ROADMAP_DATA: RoadmapItemData[] = [
   {
     id: '1',
     date: '2026年 Q1',
-    title: 'Nexus 交易所候补名单开放',
+    title: 'USDX 稳定币',
     description:
-      'Nexus 交易所候补名单正式开放，允许早期用户与合作伙伴在正式上线前表达兴趣，并参与产品塑造。',
+      'USDX 是 Nexus 的原生美元 —— 一个统一的结算层，它消除稳定币碎片化、简化交易，并统一开发者激励。资金一次部署，到处交易，构建一个更连贯、更资本高效的加密经济体。',
     points: [
       '早期用户与生态合作伙伴注册候补名单',
       '重点进行用户引导与体验反馈',
