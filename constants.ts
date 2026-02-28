@@ -1,4 +1,5 @@
 import { RoadmapItemData } from './types';
+
 // Updated roadmap data based on the latest Nexus roadmap
 export const INITIAL_ROADMAP_DATA: RoadmapItemData[] = [
   {
@@ -62,7 +63,3 @@ export const INITIAL_ROADMAP_DATA: RoadmapItemData[] = [
     ]
   }
 ];
- 
- 
- 
-我想去掉所有的point
